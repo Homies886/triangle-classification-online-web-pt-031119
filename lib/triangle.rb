@@ -9,7 +9,7 @@ class Triangle
   end
   
   def kind
-    real_triangle
+    test_triangle
     if side1 == side2 && side2 == side3
       :equilateral
     elsif side1 == side2 || side2 == side3 || side1 == side3
@@ -19,7 +19,7 @@ class Triangle
     end
   end
 
-  def real_triangle
+  def test_triangle
     triangle = [(side1 + side2 > side3), (side1 + side3 > side2), (side2 + side3 > side1)]
     [side1, side2, side3].each { |s| triangle << false if s <= 0 }
     raise TriangleError if triangle.include?(false)
