@@ -21,8 +21,8 @@ class Triangle
 
   def real_triangle
     triangle = [(side1 + side2 > side3), (side1 + side3 > side2), (side2 + side3 > side1)]
-    [side1, side2, side3].each { |s| real_triangle << false if s <= 0 }
-    raise TriangleError if real_triangle.include?(false)
+    [side1, side2, side3].each { |s| triangle << false if s <= 0 }
+    raise TriangleError if triangle.include?(false)
   end
 
   class TriangleError < StandardError
